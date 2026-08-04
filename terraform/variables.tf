@@ -3,5 +3,5 @@ variable "cpus" {
 }
 
 variable "ram" {
-    default = "1 gib"
+    default = "512 mib"
 }
