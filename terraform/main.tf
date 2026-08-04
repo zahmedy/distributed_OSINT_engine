@@ -1,15 +1,19 @@
 terraform {
     required_providers {
-        virtualbox = {
-            source  = "lima-vm/lima"
+        docker = {
+            source = "docker/docker"
+            version = "~0.2"
         }
     }
 }
 
-resource "virtualbox_vm" "node" {
-    count       = 3
-    name        = format("node-%02d", count.index + 1)
-    template    = "ubuntu"
-    cpus        = var.cpus
-    memory      = var.ram
+provider "docker" { }
+
+resource "docker_hub_repository"{
+    name = "container-%count"
+    count = 3
+    namespace = "test-namespace"
+    cpu = var.cpus
+    memory = var.memory
 }
+
