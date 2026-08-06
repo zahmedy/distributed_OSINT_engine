@@ -3,21 +3,22 @@
 set -euo pipefail
 
 apply () {
-    cd vpc
+    cd subnet
     terraform init
     terraform apply --auto-approve
-    cd ../subnet
+    cd ../vpc
     terraform init
     terraform apply --auto-approve
 }
 
 destroy () {
-    cd vpc
+    cd subnet
     terraform init
     terraform destroy --auto-approve
-    cd ../subnet
+    cd ../vpc
     terraform init
     terraform destroy --auto-approve
+    
 }
 
 case "$1" in 
