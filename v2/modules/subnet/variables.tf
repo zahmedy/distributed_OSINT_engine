@@ -9,3 +9,7 @@ variable "cidr_block" {
 variable "env" {
   default = "prod"
 }
+
+variable "vpc_id" {
+
+}
